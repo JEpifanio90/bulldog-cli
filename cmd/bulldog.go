@@ -18,19 +18,33 @@ package main
 
 import (
 	"fmt"
-	_ "github.com/JEpifanio90/bulldog-cli/internal/config"
-	"github.com/urfave/cli/v2"
 	"log"
 	"os"
+
+	"github.com/urfave/cli/v2"
+	"go.uber.org/zap"
+
+	"github.com/JEpifanio90/bulldog-cli/internal/commands"
 )
 
 func main() {
+	logger := zap.NewExample()
+	defer logger.Sync()
+
 	app := &cli.App{
-		Name:  "Bulldog",
-		Usage: "Bulldog is a CLI that empowers developers by giving them full control over their cloud accounts and pipelines",
+		Name:  "bulldog",
+		Usage: "is a CLI that empowers developers by giving them full control over their cloud accounts and pipelines",
 		Action: func(*cli.Context) error {
-			fmt.Println("boom! I say!")
+			fmt.Println("Woof!")
 			return nil
+		},
+		Commands: []*cli.Command{
+			{
+				Name:        "tenant",
+				Aliases:     []string{"tnt"},
+				Usage:       "...",
+				Subcommands: []*cli.Command{&commands.List},
+			},
 		},
 	}
 
