@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Docs report
+    url: https://github.com/jepifanio90/bulldog-cli/issues/new
+    about: Report an issue in Bulldog Cli's documentation
