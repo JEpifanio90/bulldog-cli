@@ -1,4 +1,4 @@
-// Package main
+// Package config
 /*
 Copyright © 2022 Jose Epifanio jose.epifanio90@gmail.com
 
@@ -14,27 +14,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package main
+package config
 
 import (
-	"fmt"
-	_ "github.com/JEpifanio90/bulldog-cli/internal/config"
-	"github.com/urfave/cli/v2"
-	"log"
-	"os"
+	"go.uber.org/zap"
 )
 
-func main() {
-	app := &cli.App{
-		Name:  "Bulldog",
-		Usage: "Bulldog is a CLI that empowers developers by giving them full control over their cloud accounts and pipelines",
-		Action: func(*cli.Context) error {
-			fmt.Println("boom! I say!")
-			return nil
-		},
-	}
+var logger *zap.Logger
 
-	if err := app.Run(os.Args); err != nil {
-		log.Fatal(err)
+func init() {
+	if logger == nil {
+		logger = zap.NewExample()
+		defer logger.Sync()
 	}
 }
