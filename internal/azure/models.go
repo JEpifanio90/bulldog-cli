@@ -1,10 +1,11 @@
 package azure
 
 type Resource struct {
-	Location      string
-	Name          string
-	Namespace     string
-	ResourceGroup string
-	ResourceType  string
-	Tag           string
+	ID          string
+	Kind        string
+	Location    string
+	Name        string
+	CreatedTime string
+	Type        string
+	Tags        map[string]string
 }

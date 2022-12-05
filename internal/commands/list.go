@@ -17,10 +17,10 @@ limitations under the License.
 package commands
 
 import (
-	"log"
-
+	"github.com/JEpifanio90/bulldog-cli/internal/azure"
 	"github.com/pterm/pterm"
 	"github.com/urfave/cli/v2"
+	"log"
 
 	"github.com/JEpifanio90/bulldog-cli/internal/aws"
 	"github.com/JEpifanio90/bulldog-cli/internal/gcp"
@@ -35,22 +35,17 @@ var List = cli.Command{
 	Usage:   "",
 	Action: func(context *cli.Context) error {
 		pterm.DefaultSpinner.Start("Fetching all of your resources from all the platforms...")
-		awsResources, err := aws.FetchResources()
-		if err != nil {
-			pterm.Warning.Println("It looks like you don't have the AWS CLI installed! Skipping it...")
-		}
-		gcpProjects, err := gcp.FetchResources()
-		if err != nil {
-			pterm.Warning.Println("It looks like you don't have the GCP CLI installed! Skipping it...")
-		}
-		cloudOutput(&awsResources, &gcpProjects)
+		awsResources := aws.FetchResources()
+		gcpProjects := gcp.FetchResources()
+		azureResources := azure.FetchResources()
+		cloudOutput(&awsResources, &gcpProjects, &azureResources)
 		pterm.DefaultSpinner.Stop()
 		printer()
 		return nil
 	},
 }
 
-func cloudOutput(awsResources *[]aws.Resource, gcpProjects *[]gcp.Project) {
+func cloudOutput(awsResources *[]aws.Resource, gcpProjects *[]gcp.Project, azureResources *[]azure.Resource) {
 	if awsResources != nil && len(*awsResources) > 0 {
 		for _, value := range *awsResources {
 			arn, _ := savant.Parse(value.ResourceARN)
@@ -79,6 +74,24 @@ func cloudOutput(awsResources *[]aws.Resource, gcpProjects *[]gcp.Project) {
 					Type:      "-",
 					Region:    "-",
 					Tags:      nil,
+				},
+			)
+		}
+	}
+
+	if azureResources != nil && len(*azureResources) > 0 {
+		for _, project := range *azureResources {
+			id, _ := savant.ParseAZ(project.ID)
+
+			tenants = append(
+				tenants,
+				models.Tenant{
+					AccountID: id,
+					Platform:  "az",
+					Name:      project.Name,
+					Type:      project.Type,
+					Region:    project.Location,
+					//Tags:      project.Tags,
 				},
 			)
 		}

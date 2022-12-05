@@ -19,7 +19,9 @@ package savant
 
 import (
 	"errors"
+	"fmt"
 	"github.com/JEpifanio90/bulldog-cli/internal/aws"
+	"regexp"
 	"strings"
 )
 
@@ -63,6 +65,19 @@ func Parse(arn string) (*aws.ARN, error) {
 		}
 	}
 	return components, nil
+}
+
+func ParseAZ(resourceID string) (string, error) {
+	const patternText = `(?i)subscriptions/(.+)/resourceGroups/(.+)/providers/(.+?)/(.+?)/(.+)`
+	resourcePattern := regexp.MustCompile(patternText)
+	match := resourcePattern.FindStringSubmatch(resourceID)
+
+	if len(match) == 0 {
+		return "", fmt.Errorf("savant: parsing failed for resource ID %s", resourceID)
+	}
+
+	v := strings.Split(match[5], "/")
+	return v[len(v)-1], nil
 }
 
 func validate(arn string, pieces []string) error {

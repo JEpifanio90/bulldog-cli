@@ -20,24 +20,28 @@ package aws
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pterm/pterm"
 	"os/exec"
 )
 
-func FetchResources() ([]Resource, error) {
-	var wrapper = ResourceWrapper{}
+func FetchResources() []Resource {
+	wrapper := ResourceWrapper{}
 
 	awsCli := exec.Command("aws", "resourcegroupstaggingapi", "get-resources", "--no-paginate")
 
 	output, err := awsCli.Output()
+
 	if err != nil {
-		if exitErr, ok := err.(*exec.ExitError); ok {
-			return nil, fmt.Errorf("aws cli cmd: %v", string(exitErr.Stderr))
-		}
-	}
-	err = json.Unmarshal(output, &wrapper)
-	if err != nil {
-		return nil, fmt.Errorf("aws cli unmarshal: %v", err)
+		pterm.Error.Println(fmt.Errorf("aws cli %v", err.Error()))
+		return nil
 	}
 
-	return wrapper.ResourceTagMappingList, nil
+	err = json.Unmarshal(output, &wrapper)
+
+	if err != nil {
+		pterm.Error.Println(fmt.Errorf("aws cli unmarshal: %v", err))
+		return nil
+	}
+
+	return wrapper.ResourceTagMappingList
 }

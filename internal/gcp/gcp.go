@@ -20,26 +20,29 @@ package gcp
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pterm/pterm"
 	"os/exec"
 )
 
-func FetchResources() ([]Project, error) {
+func FetchResources() []Project {
 	var projects []Project
 
 	// gcloud projects describe project ID
 	gcpCli := exec.Command("gcloud", "projects", "list", "--format", "json")
 
 	output, err := gcpCli.Output()
+
 	if err != nil {
-		if exitErr, ok := err.(*exec.ExitError); ok {
-			return nil, fmt.Errorf("gcp cli cmd: %v", string(exitErr.Stderr))
-		}
+		pterm.Error.Println(fmt.Errorf("gcp cli %v", err.Error()))
+		return nil
 	}
 
 	err = json.Unmarshal(output, &projects)
+
 	if err != nil {
-		return nil, fmt.Errorf("aws cli unmarshal: %v", err)
+		pterm.Error.Println(fmt.Errorf("gcp cli unmarshal: %v", err))
+		return nil
 	}
 
-	return projects, nil
+	return projects
 }
