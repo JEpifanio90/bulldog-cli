@@ -27,17 +27,5 @@ func FetchResources() []Resource {
 
 	fmt.Println(azureCli)
 
-	//output, err := awsCli.Output()
-	//if err != nil {
-	//	if exitErr, ok := err.(*exec.ExitError); ok {
-	//		log.Fatalln(string(exitErr.Stderr))
-	//	}
-	//}
-	//err = json.Unmarshal(output, &wrapper)
-	//if err != nil {
-	//	log.Fatalln(err)
-	//}
-	//
-	//return wrapper.ResourceTagMappingList
 	return nil
 }

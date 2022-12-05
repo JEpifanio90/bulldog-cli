@@ -19,11 +19,11 @@ package aws
 
 import (
 	"encoding/json"
-	"log"
+	"fmt"
 	"os/exec"
 )
 
-func FetchResources() []Resource {
+func FetchResources() ([]Resource, error) {
 	var wrapper = ResourceWrapper{}
 
 	awsCli := exec.Command("aws", "resourcegroupstaggingapi", "get-resources", "--no-paginate")
@@ -31,13 +31,13 @@ func FetchResources() []Resource {
 	output, err := awsCli.Output()
 	if err != nil {
 		if exitErr, ok := err.(*exec.ExitError); ok {
-			log.Fatalln(string(exitErr.Stderr))
+			return nil, fmt.Errorf("aws cli cmd: %v", string(exitErr.Stderr))
 		}
 	}
 	err = json.Unmarshal(output, &wrapper)
 	if err != nil {
-		log.Fatalln(err)
+		return nil, fmt.Errorf("aws cli unmarshal: %v", err)
 	}
 
-	return wrapper.ResourceTagMappingList
+	return wrapper.ResourceTagMappingList, nil
 }
