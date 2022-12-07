@@ -3,23 +3,36 @@ package azure
 import (
 	"encoding/json"
 	"fmt"
+	models "github.com/JEpifanio90/bulldog-cli/internal/models"
+	"github.com/JEpifanio90/bulldog-cli/tools/savant"
 	"github.com/pterm/pterm"
-	"os/exec"
 )
 
-func FetchResources() []Resource {
-	var resources []Resource
+func ConvertToTenants(rawOutput []byte) []models.Tenant {
+	var tenants []models.Tenant
 
-	azureCli := exec.Command("az", "resource", "list", "-o", "json")
+	for _, project := range parse(rawOutput) {
+		id, _ := savant.ParseAZ(project.ID)
 
-	output, err := azureCli.Output()
-
-	if err != nil {
-		pterm.Error.Println(fmt.Errorf("az cli %v", err.Error()))
-		return nil
+		tenants = append(
+			tenants,
+			models.Tenant{
+				AccountID: id,
+				Platform:  "az",
+				Name:      project.Name,
+				Type:      project.Type,
+				Region:    project.Location,
+				//Tags:      project.Tags,
+			},
+		)
 	}
 
-	err = json.Unmarshal(output, &resources)
+	return tenants
+}
+
+func parse(rawOutput []byte) []models.AZResource {
+	var resources []models.AZResource
+	err := json.Unmarshal(rawOutput, &resources)
 
 	if err != nil {
 		pterm.Error.Println(fmt.Errorf("az cli unmarshal: %v", err))

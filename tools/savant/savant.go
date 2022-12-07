@@ -3,35 +3,31 @@ package savant
 import (
 	"errors"
 	"fmt"
-	"github.com/JEpifanio90/bulldog-cli/internal/aws"
+	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"regexp"
 	"strings"
 )
 
 var (
-	// ErrMalformed is returned when the ARN appears to be invalid.
-	ErrMalformed = errors.New("malformed ARN")
-
-	// ErrVariablesNotSupported is returned when the ARN contains policy
-	// variables.
+	ErrMalformed             = errors.New("malformed ARN")
 	ErrVariablesNotSupported = errors.New("policy variables are not supported")
 )
 
-// Parse accepts and ARN string and attempts to break it into component parts.
-func Parse(arn string) (*aws.ARN, error) {
+func ParseARN(arn string) (*models.AWSArn, error) {
 	pieces := strings.SplitN(arn, ":", 6)
 
 	if err := validate(arn, pieces); err != nil {
 		return nil, err
 	}
 
-	components := &aws.ARN{
+	components := &models.AWSArn{
 		ARN:       pieces[0],
 		Partition: pieces[1],
 		Service:   pieces[2],
 		Region:    pieces[3],
 		AccountID: pieces[4],
 	}
+
 	if n := strings.Count(pieces[5], ":"); n > 0 {
 		components.ResourceDelimiter = ":"
 		resourceParts := strings.SplitN(pieces[5], ":", 2)

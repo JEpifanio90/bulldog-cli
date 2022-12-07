@@ -18,13 +18,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
 	"log"
 	"os"
 
 	"github.com/urfave/cli/v2"
 	"go.uber.org/zap"
-
-	"github.com/JEpifanio90/bulldog-cli/internal/commands"
 )
 
 func main() {
@@ -43,7 +42,7 @@ func main() {
 				Name:        "tenant",
 				Aliases:     []string{"tnt"},
 				Usage:       "...",
-				Subcommands: []*cli.Command{&commands.List},
+				Subcommands: []*cli.Command{&list.List},
 			},
 		},
 	}

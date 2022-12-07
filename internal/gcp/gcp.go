@@ -3,24 +3,33 @@ package gcp
 import (
 	"encoding/json"
 	"fmt"
+	models "github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/pterm/pterm"
-	"os/exec"
 )
 
-func FetchResources() []Project {
-	var projects []Project
+func ConvertToTenants(rawOutput []byte) []models.Tenant {
+	var tenants []models.Tenant
 
-	// gcloud projects describe project ID
-	gcpCli := exec.Command("gcloud", "projects", "list", "--format", "json")
-
-	output, err := gcpCli.Output()
-
-	if err != nil {
-		pterm.Error.Println(fmt.Errorf("gcp cli %v", err.Error()))
-		return nil
+	for _, project := range parse(rawOutput) {
+		tenants = append(
+			tenants,
+			models.Tenant{
+				AccountID: project.ProjectId,
+				Platform:  "gcp",
+				Name:      project.Name,
+				Type:      "-",
+				Region:    "-",
+				Tags:      nil,
+			},
+		)
 	}
 
-	err = json.Unmarshal(output, &projects)
+	return tenants
+}
+
+func parse(rawOutput []byte) []models.GCPProject {
+	var projects []models.GCPProject
+	err := json.Unmarshal(rawOutput, &projects)
 
 	if err != nil {
 		pterm.Error.Println(fmt.Errorf("gcp cli unmarshal: %v", err))
