@@ -14,7 +14,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jepifanio90/bulldog-cli">
-    <img src="images/logo.png" alt="Logo" width="40%" height="100%">
+    <img src=".github/media/logo.png" alt="Logo" width="40%" height="100%">
   </a>
 
   <h3 align="center">Bulldog CLI</h3>
@@ -224,7 +224,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/jepifanio90/bulldog-cli/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: .github/media/screenshot.png
 [Go]: https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff
 [Go-url]: https://golang.org/
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
