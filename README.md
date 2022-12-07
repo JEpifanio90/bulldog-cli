@@ -25,8 +25,6 @@
     <a href="https://github.com/jepifanio90/bulldog-cli"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/jepifanio90/bulldog-cli">View Demo</a>
-    ·
     <a href="https://github.com/jepifanio90/bulldog-cli/issues">Report Bug</a>
     ·
     <a href="https://github.com/jepifanio90/bulldog-cli/issues">Request Feature</a>
@@ -64,7 +62,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![asciicast](https://asciinema.org/a/gdUk2sfg3TB41RYlX1rzUleB0.svg)](https://asciinema.org/a/gdUk2sfg3TB41RYlX1rzUleB0)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
