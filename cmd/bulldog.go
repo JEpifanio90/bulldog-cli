@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
-	"log"
+	"github.com/pterm/pterm"
 	"os"
 
 	"github.com/urfave/cli/v2"
@@ -33,10 +33,6 @@ func main() {
 	app := &cli.App{
 		Name:  "bulldog",
 		Usage: "is a CLI that empowers developers by giving them full control over their cloud accounts and pipelines",
-		Action: func(*cli.Context) error {
-			fmt.Println("Woof!")
-			return nil
-		},
 		Commands: []*cli.Command{
 			{
 				Name:        "tenant",
@@ -48,6 +44,6 @@ func main() {
 	}
 
 	if err := app.Run(os.Args); err != nil {
-		log.Fatal(err)
+		pterm.Error.Println(fmt.Errorf("bulldog main: %v", err))
 	}
 }
