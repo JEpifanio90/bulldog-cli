@@ -62,7 +62,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![asciicast](https://asciinema.org/a/gdUk2sfg3TB41RYlX1rzUleB0.svg)](https://asciinema.org/a/gdUk2sfg3TB41RYlX1rzUleB0)
+[![asciicast](.github/media/demo.gif)](.github/media/demo.gif)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
