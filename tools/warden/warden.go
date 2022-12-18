@@ -24,7 +24,7 @@ func init() {
 			command := models.Command{Name: cmd, Args: args}
 			availableCmds = append(availableCmds, command)
 		} else {
-			pterm.Warning.Println(fmt.Errorf("woof! It looks like you don't have the %v CLI installed. Skipping it", cmd))
+			pterm.Warning.Println(fmt.Errorf("woof! It looks like you don't have the %v cli installed. Skipping it", cmd))
 		}
 	}
 }
@@ -49,7 +49,7 @@ func executioner(cmdMeta models.Command, tenants *[]models.Tenant) {
 	rawOutput, err := cmd.Output()
 
 	if err != nil {
-		pterm.Error.Println(fmt.Errorf("%v cli %v", cmdMeta.Name, err.Error()))
+		pterm.Error.Println(fmt.Errorf("warden: %v cli %v", cmdMeta.Name, err.Error()))
 		return
 	}
 

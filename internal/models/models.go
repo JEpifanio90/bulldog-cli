@@ -6,7 +6,7 @@ type Tenant struct {
 	Name      string
 	Type      string
 	Region    string
-	Tags      []map[string]string
+	Tags      string
 }
 
 type Command struct {

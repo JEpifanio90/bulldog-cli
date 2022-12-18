@@ -3,7 +3,7 @@ package aws
 import (
 	"encoding/json"
 	"fmt"
-	models "github.com/JEpifanio90/bulldog-cli/internal/models"
+	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/JEpifanio90/bulldog-cli/tools/savant"
 	"github.com/pterm/pterm"
 )
@@ -21,7 +21,7 @@ func ConvertToTenants(rawOutput []byte) []models.Tenant {
 				Name:      arn.Resource,
 				Type:      arn.Service,
 				Region:    arn.Region,
-				Tags:      value.Tags,
+				//Tags:      value.Tags,
 			},
 		)
 	}

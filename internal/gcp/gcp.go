@@ -3,7 +3,7 @@ package gcp
 import (
 	"encoding/json"
 	"fmt"
-	models "github.com/JEpifanio90/bulldog-cli/internal/models"
+	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/pterm/pterm"
 )
 
@@ -19,7 +19,7 @@ func ConvertToTenants(rawOutput []byte) []models.Tenant {
 				Name:      project.Name,
 				Type:      "-",
 				Region:    "-",
-				Tags:      nil,
+				//Tags:     ""
 			},
 		)
 	}
