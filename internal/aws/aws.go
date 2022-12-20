@@ -13,6 +13,8 @@ func ConvertToTenants(rawOutput []byte) []models.Tenant {
 
 	for _, value := range parse(rawOutput) {
 		arn, _ := savant.ParseARN(value.ResourceARN)
+		tags, _ := json.Marshal(value.Tags)
+
 		tenants = append(
 			tenants,
 			models.Tenant{
@@ -21,7 +23,7 @@ func ConvertToTenants(rawOutput []byte) []models.Tenant {
 				Name:      arn.Resource,
 				Type:      arn.Service,
 				Region:    arn.Region,
-				//Tags:      value.Tags,
+				Tags:      string(tags),
 			},
 		)
 	}
