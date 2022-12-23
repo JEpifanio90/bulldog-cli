@@ -12,13 +12,38 @@ import (
 )
 
 var availableCmds []models.Command
+var dumb = map[string][]string{
+	"cloud":     {"aws", "gcp", "az"},
+	"pipelines": {"travis"},
+}
 
-func init() {
+func FetchResources(filter *string) []models.Tenant {
+	var tenants []models.Tenant
+	setup(filter)
+
+	for _, cmd := range availableCmds {
+		executioner(cmd, &tenants)
+	}
+
+	return tenants
+}
+
+func setup(filter *string) {
 	rawCmds := map[string][]string{
 		"aws":    {"resourcegroupstaggingapi", "get-resources", "--no-paginate"},
 		"gcp":    {"projects", "list", "--format", "json"},
 		"az":     {"resource", "list", "--output", "json"},
 		"travis": {"accounts"},
+	}
+
+	if *filter == "cloud" {
+		delete(rawCmds, "travis")
+	}
+
+	if *filter == "pipelines" {
+		delete(rawCmds, "aws")
+		delete(rawCmds, "gcp")
+		delete(rawCmds, "az")
 	}
 
 	for cmd, args := range rawCmds {
@@ -29,16 +54,6 @@ func init() {
 			pterm.Warning.Println(fmt.Errorf("woof! It looks like you don't have the %v cli installed. Skipping it", cmd))
 		}
 	}
-}
-
-func FetchResources() []models.Tenant {
-	var tenants []models.Tenant
-
-	for _, cmd := range availableCmds {
-		executioner(cmd, &tenants)
-	}
-
-	return tenants
 }
 
 func commandExists(cmd string) bool {

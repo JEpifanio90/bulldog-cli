@@ -9,13 +9,22 @@ import (
 )
 
 var tenants []models.Tenant
-var List = cli.Command{
+var filter string
+var Command = cli.Command{
 	Name:    "list",
 	Aliases: []string{"ls"},
 	Usage:   "",
+	Flags: []cli.Flag{
+		&cli.StringFlag{
+			Name:        "type",
+			Value:       "all",
+			Usage:       "display only cloud (aws, gcp, az), pipelines (travis, circle ci) or all",
+			Destination: &filter,
+		},
+	},
 	Action: func(context *cli.Context) error {
 		pterm.DefaultSpinner.Start("Fetching all of your resources from all the platforms...")
-		tenants = warden.FetchResources()
+		tenants = warden.FetchResources(&filter)
 		pterm.DefaultSpinner.Stop()
 		printer()
 		return nil

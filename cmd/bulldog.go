@@ -34,7 +34,7 @@ func main() {
 				Name:        "tenant",
 				Aliases:     []string{"tnt"},
 				Usage:       "...",
-				Subcommands: []*cli.Command{&list.List},
+				Subcommands: []*cli.Command{&list.Command},
 			},
 		},
 	}
