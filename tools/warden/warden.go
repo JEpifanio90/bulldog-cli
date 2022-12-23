@@ -6,6 +6,7 @@ import (
 	"github.com/JEpifanio90/bulldog-cli/internal/azure"
 	"github.com/JEpifanio90/bulldog-cli/internal/gcp"
 	"github.com/JEpifanio90/bulldog-cli/internal/models"
+	"github.com/JEpifanio90/bulldog-cli/internal/travis_ci"
 	"github.com/pterm/pterm"
 	"os/exec"
 )
@@ -14,9 +15,10 @@ var availableCmds []models.Command
 
 func init() {
 	rawCmds := map[string][]string{
-		"aws": {"resourcegroupstaggingapi", "get-resources", "--no-paginate"},
-		"gcp": {"projects", "list", "--format", "json"},
-		"az":  {"resource", "list", "--output", "json"},
+		"aws":    {"resourcegroupstaggingapi", "get-resources", "--no-paginate"},
+		"gcp":    {"projects", "list", "--format", "json"},
+		"az":     {"resource", "list", "--output", "json"},
+		"travis": {"accounts"},
 	}
 
 	for cmd, args := range rawCmds {
@@ -45,9 +47,7 @@ func commandExists(cmd string) bool {
 }
 
 func executioner(cmdMeta models.Command, tenants *[]models.Tenant) {
-	cmd := exec.Command(cmdMeta.Name, cmdMeta.Args...)
-	rawOutput, err := cmd.Output()
-
+	rawOutput, err := exec.Command(cmdMeta.Name, cmdMeta.Args...).CombinedOutput()
 	if err != nil {
 		pterm.Error.Println(fmt.Errorf("warden: %v cli %v", cmdMeta.Name, err.Error()))
 		return
@@ -60,5 +60,7 @@ func executioner(cmdMeta models.Command, tenants *[]models.Tenant) {
 		*tenants = append(*tenants, gcp.ConvertToTenants(rawOutput)...)
 	case "az":
 		*tenants = append(*tenants, azure.ConvertToTenants(rawOutput)...)
+	case "travis":
+		*tenants = append(*tenants, travis_ci.ConvertToTenants(rawOutput)...)
 	}
 }
