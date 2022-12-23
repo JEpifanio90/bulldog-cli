@@ -23,13 +23,9 @@ import (
 	"os"
 
 	"github.com/urfave/cli/v2"
-	"go.uber.org/zap"
 )
 
 func main() {
-	logger := zap.NewExample()
-	defer logger.Sync()
-
 	app := &cli.App{
 		Name:  "bulldog",
 		Usage: "is a CLI that empowers developers by giving them full control over their cloud accounts and pipelines",
