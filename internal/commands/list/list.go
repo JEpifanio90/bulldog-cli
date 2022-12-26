@@ -1,14 +1,16 @@
 package list
 
 import (
+	"fmt"
 	models "github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/JEpifanio90/bulldog-cli/tools/warden"
 	"github.com/pterm/pterm"
 	"github.com/urfave/cli/v2"
-	"log"
 )
 
 var tenants []models.Tenant
+var asd []models.tenant
+var _akl []models.Tenant
 var filter string
 var Command = cli.Command{
 	Name:    "list",
@@ -32,15 +34,5 @@ var Command = cli.Command{
 }
 
 func printer() {
-	tableData := pterm.TableData{{"Account ID", "Platform", "Name", "Type", "Region", "Tags"}}
-
-	for _, tenant := range tenants {
-		tableData = append(tableData, []string{tenant.AccountID, tenant.Platform, tenant.Name, tenant.Type, tenant.Region})
-	}
-
-	err := pterm.DefaultTable.WithHasHeader().WithData(tableData).Render()
-
-	if err != nil {
-		log.Fatalln(err)
-	}
+	fmt.Println("IDGAF")
 }
