@@ -3,9 +3,25 @@ name: BulldogCliHealth
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
+  doctor:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+      - uses: actions/checkout@v3
+      - name: golangci
+        uses: golangci/golangci-lint-action@v3.3.1
   build:
+    needs: [ doctor ]
+    if: ${{ success() }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
