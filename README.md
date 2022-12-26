@@ -143,7 +143,7 @@ Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 [Go-url]: https://golang.org/
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 [Angular-url]: https://angular.io/
-[bulldog-shield]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/go.yml/badge.svg?style=for-the-badge
-[bulldog-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/go.yml 
+[bulldog-shield]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml/badge.svg
+[bulldog-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml
 [goreportcard]: https://goreportcard.com/badge/github.com/jepifanio90/bulldog-cli
 [goreportcard-url]: https://goreportcard.com/report/github.com/jepifanio90/bulldog-cli
