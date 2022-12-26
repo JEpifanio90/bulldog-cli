@@ -23,9 +23,9 @@ var Command = cli.Command{
 		},
 	},
 	Action: func(context *cli.Context) error {
-		pterm.DefaultSpinner.Start("Fetching all of your resources from all the platforms...")
+		_, _ = pterm.DefaultSpinner.Start("Fetching all of your resources from all the platforms...")
 		tenants = warden.FetchResources(&filter)
-		pterm.DefaultSpinner.Stop()
+		_ = pterm.DefaultSpinner.Stop()
 		printer()
 		return nil
 	},

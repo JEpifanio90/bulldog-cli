@@ -12,10 +12,6 @@ import (
 )
 
 var availableCmds []models.Command
-var dumb = map[string][]string{
-	"cloud":     {"aws", "gcp", "az"},
-	"pipelines": {"travis"},
-}
 
 func FetchResources(filter *string) []models.Tenant {
 	var tenants []models.Tenant
