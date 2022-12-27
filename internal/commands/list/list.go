@@ -9,7 +9,6 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var tenants []models.Tenant
 var filter string
 var Command = cli.Command{
 	Name:    "list",
@@ -25,17 +24,17 @@ var Command = cli.Command{
 	},
 	Action: func(context *cli.Context) error {
 		_, _ = pterm.DefaultSpinner.Start("Fetching all of your resources from all the platforms...")
-		tenants = warden.FetchResources(&filter)
+		tenants := warden.FetchResources(&filter)
 		_ = pterm.DefaultSpinner.Stop()
-		printer()
+		printer(&tenants)
 		return nil
 	},
 }
 
-func printer() {
+func printer(tenants *[]models.Tenant) {
 	tableData := pterm.TableData{{"Account ID", "Platform", "Name", "Type", "Region", "Tags"}}
 
-	for _, tenant := range tenants {
+	for _, tenant := range *tenants {
 		tableData = append(tableData, []string{tenant.AccountID, tenant.Platform, tenant.Name, tenant.Type, tenant.Region})
 	}
 

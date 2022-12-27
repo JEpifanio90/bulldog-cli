@@ -3,6 +3,7 @@ package warden
 import (
 	"fmt"
 	"os/exec"
+	"sync"
 
 	"github.com/JEpifanio90/bulldog-cli/internal/aws"
 	"github.com/JEpifanio90/bulldog-cli/internal/azure"
@@ -12,23 +13,25 @@ import (
 	"github.com/pterm/pterm"
 )
 
-var availableCmds []models.Command
-
 func FetchResources(filter *string) []models.Tenant {
 	var tenants []models.Tenant
-	setup(filter)
+	var waitGroup sync.WaitGroup
+	commands := setup(filter)
 
-	for _, cmd := range availableCmds {
-		executioner(cmd, &tenants)
+	for _, cmd := range commands {
+		waitGroup.Add(1)
+		executioner(cmd, &tenants, &waitGroup)
 	}
 
+	waitGroup.Wait()
 	return tenants
 }
 
-func setup(filter *string) {
+func setup(filter *string) []models.Command {
+	var availableCmds []models.Command
 	rawCmds := map[string][]string{
 		"aws":    {"resourcegroupstaggingapi", "get-resources", "--no-paginate"},
-		"gcp":    {"projects", "list", "--format", "json"},
+		"gcloud": {"projects", "list", "--format", "json"},
 		"az":     {"resource", "list", "--output", "json"},
 		"travis": {"accounts"},
 	}
@@ -51,6 +54,8 @@ func setup(filter *string) {
 			pterm.Warning.Println(fmt.Errorf("woof! It looks like you don't have the %v cli installed. Skipping it", cmd))
 		}
 	}
+
+	return availableCmds
 }
 
 func commandExists(cmd string) bool {
@@ -58,7 +63,8 @@ func commandExists(cmd string) bool {
 	return err == nil
 }
 
-func executioner(cmdMeta models.Command, tenants *[]models.Tenant) {
+func executioner(cmdMeta models.Command, tenants *[]models.Tenant, waitGroup *sync.WaitGroup) {
+	defer waitGroup.Done()
 	rawOutput, err := exec.Command(cmdMeta.Name, cmdMeta.Args...).CombinedOutput()
 	if err != nil {
 		pterm.Error.Println(fmt.Errorf("warden: %v cli %v", cmdMeta.Name, err.Error()))
@@ -68,7 +74,7 @@ func executioner(cmdMeta models.Command, tenants *[]models.Tenant) {
 	switch cmdMeta.Name {
 	case "aws":
 		*tenants = append(*tenants, aws.ConvertToTenants(rawOutput)...)
-	case "gcp":
+	case "gcloud":
 		*tenants = append(*tenants, gcp.ConvertToTenants(rawOutput)...)
 	case "az":
 		*tenants = append(*tenants, azure.ConvertToTenants(rawOutput)...)
