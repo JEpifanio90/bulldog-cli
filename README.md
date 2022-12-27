@@ -37,9 +37,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -48,12 +45,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -77,14 +71,25 @@ pipelines (Circle CI, Travis and Github Actions) and displays that data in a nic
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
+### Prerequisites
+
+For now you'll need the following installed in your local:
+ - awscli
+ - glcoud
+ - az (azure cli)
+ - travis
+
 ### Installation
 
-Just run any of these commands
+In progress...
 
-* Brew
-  ```sh
-  brew install bulldog-cli
-  ```
+[//]: # (* Brew)
+
+[//]: # (  ```sh)
+
+[//]: # (  brew install bulldog-cli)
+
+[//]: # (  ```)
 
 <!-- ROADMAP -->
 
@@ -92,10 +97,9 @@ Just run any of these commands
 
 - [x] Tenant Command
     - [x] Add list sub command
-        - [ ] Add `cloud` flag
-        - [ ] Add `pipelines` flag
+        - [X] Add `cloud` flag
+        - [x] Add `pipelines` flag
         - [ ] Add `hosts` flag
-- [ ] Add back to top links
 
 See the [open issues](https://github.com/jepifanio90/bulldog-cli/issues) for a full list of proposed features (and known
 issues).
@@ -156,20 +160,6 @@ Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 [license-shield]: https://img.shields.io/github/license/jepifanio90/bulldog-cli.svg?style=for-the-badge
 
 [license-url]: https://github.com/jepifanio90/bulldog-cli/blob/master/LICENSE.txt
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-
-[linkedin-url]: https://linkedin.com/in/othneildrew
-
-[product-screenshot]: .github/media/screenshot.png
-
-[Go]: https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff
-
-[Go-url]: https://golang.org/
-
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-
-[Angular-url]: https://angular.io/
 
 [bulldog-shield]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml/badge.svg
 
