@@ -1,11 +1,12 @@
 package list
 
 import (
-	models "github.com/JEpifanio90/bulldog-cli/internal/models"
+	"log"
+
+	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/JEpifanio90/bulldog-cli/tools/warden"
 	"github.com/pterm/pterm"
 	"github.com/urfave/cli/v2"
-	"log"
 )
 
 var tenants []models.Tenant

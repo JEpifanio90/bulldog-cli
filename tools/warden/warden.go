@@ -2,13 +2,14 @@ package warden
 
 import (
 	"fmt"
+	"os/exec"
+
 	"github.com/JEpifanio90/bulldog-cli/internal/aws"
 	"github.com/JEpifanio90/bulldog-cli/internal/azure"
 	"github.com/JEpifanio90/bulldog-cli/internal/gcp"
 	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/JEpifanio90/bulldog-cli/internal/travis_ci"
 	"github.com/pterm/pterm"
-	"os/exec"
 )
 
 var availableCmds []models.Command

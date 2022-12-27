@@ -3,6 +3,7 @@
 Please check to confirm your PR fulfills the following requirements:
 
 <!-- Please check all that apply using "x". -->
+
 - [ ] Tests for the changes have been added (for bug fixes / features)
 - [ ] Docs have been added / updated (for bug fixes / features)
 

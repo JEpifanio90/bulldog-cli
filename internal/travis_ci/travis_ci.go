@@ -3,6 +3,7 @@ package travis_ci
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/pterm/pterm"
 )

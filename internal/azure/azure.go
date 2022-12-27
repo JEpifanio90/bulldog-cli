@@ -3,6 +3,7 @@ package azure
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/JEpifanio90/bulldog-cli/tools/savant"
 	"github.com/pterm/pterm"

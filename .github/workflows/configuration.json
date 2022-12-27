@@ -2,15 +2,21 @@
   "categories": [
     {
       "title": "## 🚀 Features",
-      "labels": ["feature"]
+      "labels": [
+        "feature"
+      ]
     },
     {
       "title": "## 🐛 Fixes",
-      "labels": ["fix"]
+      "labels": [
+        "fix"
+      ]
     },
     {
       "title": "## 🧪 Tests",
-      "labels": ["test"]
+      "labels": [
+        "test"
+      ]
     }
   ],
   "ignore_labels": [

@@ -18,10 +18,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
-	"github.com/pterm/pterm"
 	"os"
 
+	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
+	"github.com/pterm/pterm"
 	"github.com/urfave/cli/v2"
 )
 

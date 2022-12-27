@@ -3,9 +3,10 @@ package savant
 import (
 	"errors"
 	"fmt"
-	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"regexp"
 	"strings"
+
+	"github.com/JEpifanio90/bulldog-cli/internal/models"
 )
 
 var (

@@ -17,7 +17,7 @@
     <img src=".github/media/logo.png" alt="Logo" width="40%" height="100%">
   </a>
 
-  <h3 align="center">Bulldog CLI</h3>
+<h3 align="center">Bulldog CLI</h3>
 
   <p align="center">
     Bulldog is a CLI that empowers developers by giving them full control over their cloud accounts and pipelines
@@ -60,15 +60,18 @@
 
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 [![asciicast](.github/media/demo.gif)](.github/media/demo.gif)
 
-Bulldog CLI pulls your resources from different cloud providers (AWS, Google, Azure + more to come) and your CI/CD pipelines (Circle CI, Travis and Github Actions) and displays that data in a nice table format.
+Bulldog CLI pulls your resources from different cloud providers (AWS, Google, Azure + more to come) and your CI/CD
+pipelines (Circle CI, Travis and Github Actions) and displays that data in a nice table format.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
@@ -77,33 +80,39 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 Just run any of these commands
+
 * Brew
   ```sh
   brew install bulldog-cli
   ```
 
 <!-- ROADMAP -->
+
 ## Roadmap
 
 - [x] Tenant Command
     - [x] Add list sub command
-      - [ ] Add `cloud` flag
-      - [ ] Add `pipelines` flag
-      - [ ] Add `hosts` flag
+        - [ ] Add `cloud` flag
+        - [ ] Add `pipelines` flag
+        - [ ] Add `hosts` flag
 - [ ] Add back to top links
 
-See the [open issues](https://github.com/jepifanio90/bulldog-cli/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/jepifanio90/bulldog-cli/issues) for a full list of proposed features (and known
+issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
+contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
+simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -117,6 +126,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the Apache 2.0 License. See `LICENSE` for more information.
@@ -126,24 +136,45 @@ Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/jepifanio90/bulldog-cli.svg?style=for-the-badge
+
 [contributors-url]: https://github.com/jepifanio90/bulldog-cli/graphs/contributors
+
 [forks-shield]: https://img.shields.io/github/forks/jepifanio90/bulldog-cli.svg?style=for-the-badge
+
 [forks-url]: https://github.com/jepifanio90/bulldog-cli/network/members
+
 [stars-shield]: https://img.shields.io/github/stars/jepifanio90/bulldog-cli.svg?style=for-the-badge
+
 [stars-url]: https://github.com/jepifanio90/bulldog-cli/stargazers
+
 [issues-shield]: https://img.shields.io/github/issues/jepifanio90/bulldog-cli.svg?style=for-the-badge
+
 [issues-url]: https://github.com/jepifanio90/bulldog-cli/issues
+
 [license-shield]: https://img.shields.io/github/license/jepifanio90/bulldog-cli.svg?style=for-the-badge
+
 [license-url]: https://github.com/jepifanio90/bulldog-cli/blob/master/LICENSE.txt
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
 [linkedin-url]: https://linkedin.com/in/othneildrew
+
 [product-screenshot]: .github/media/screenshot.png
+
 [Go]: https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff
+
 [Go-url]: https://golang.org/
+
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+
 [Angular-url]: https://angular.io/
+
 [bulldog-shield]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml/badge.svg
+
 [bulldog-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml
+
 [goreportcard]: https://goreportcard.com/badge/github.com/jepifanio90/bulldog-cli
+
 [goreportcard-url]: https://goreportcard.com/report/github.com/jepifanio90/bulldog-cli
