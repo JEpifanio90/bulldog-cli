@@ -6,9 +6,8 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![BulldogCliHealth][bulldog-shield]][bulldog-url]
-[![Go Report Card][goreportcard]][goreportcard-url]
-
-
+[![Go Report Card][goreport-shield]][goreportcard-url]
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/jepifanio90/bulldog-cli?style=for-the-badge)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -161,10 +160,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [license-url]: https://github.com/jepifanio90/bulldog-cli/blob/master/LICENSE.txt
 
-[bulldog-shield]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml/badge.svg
+[bulldog-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/main.yml?label=Bulldog%20Health&style=for-the-badge
 
 [bulldog-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml
 
-[goreportcard]: https://goreportcard.com/badge/github.com/jepifanio90/bulldog-cli
+[goreport-shield]: https://img.shields.io/badge/go%20report-A+-brightgreen.svg?style=for-the-badge
 
 [goreportcard-url]: https://goreportcard.com/report/github.com/jepifanio90/bulldog-cli
+
+[goversion-shield] https://img.shields.io/github/go-mod/go-version/jepifanio90/bulldog-cli?style=for-the-badge
