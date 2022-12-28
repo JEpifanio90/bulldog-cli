@@ -167,5 +167,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [goreport-shield]: https://img.shields.io/badge/go%20report-A+-brightgreen.svg?style=for-the-badge
 
 [goreportcard-url]: https://goreportcard.com/report/github.com/jepifanio90/bulldog-cli
-
-[goversion-shield] https://img.shields.io/github/go-mod/go-version/jepifanio90/bulldog-cli?style=for-the-badge
