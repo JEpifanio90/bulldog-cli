@@ -1,4 +1,4 @@
-name: BulldogCliHealth
+name: Bulldog Health
 
 on:
   push:
