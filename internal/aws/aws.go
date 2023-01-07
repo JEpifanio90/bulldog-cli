@@ -3,13 +3,31 @@ package aws
 import (
 	"encoding/json"
 	"fmt"
+	"os/exec"
 
 	"github.com/JEpifanio90/bulldog-cli/internal/models"
-	"github.com/JEpifanio90/bulldog-cli/tools/savant"
+	"github.com/JEpifanio90/bulldog-cli/internal/savant"
 	"github.com/pterm/pterm"
 )
 
-func ConvertToTenants(rawOutput []byte) []models.Tenant {
+func FetchResources(cmd models.Command) []models.Tenant {
+	var tenants []models.Tenant
+
+	if cmd.CLI {
+		tenants = useAWSCli()
+	} else {
+		tenants = useCdk()
+	}
+
+	return tenants
+}
+
+func useAWSCli() []models.Tenant {
+	rawOutput, err := exec.Command("aws", []string{"resourcegroupstaggingapi", "get-resources", "--no-paginate"}...).CombinedOutput()
+	if err != nil {
+		pterm.Error.Println(fmt.Errorf("list command: aws cli %v", err.Error()))
+		return nil
+	}
 	var tenants []models.Tenant
 
 	for _, value := range parse(rawOutput) {
@@ -30,6 +48,23 @@ func ConvertToTenants(rawOutput []byte) []models.Tenant {
 	}
 
 	return tenants
+}
+
+func useCdk() []models.Tenant {
+	//// Load the Shared AWS Configuration (~/.aws/config)
+	//ctx := context.TODO()
+	//cfg, err := config.LoadDefaultConfig(ctx)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//
+	//resources, err := resourcegroupstaggingapi.Client.GetResources(ctx)
+	//if err != nil {
+	//	return
+	//}
+	//
+	//pterm.Info.Println(resources)
+	return make([]models.Tenant, 0)
 }
 
 func parse(rawOutput []byte) []models.AWSResource {

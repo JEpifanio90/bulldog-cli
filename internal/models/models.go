@@ -11,7 +11,7 @@ type Tenant struct {
 
 type Command struct {
 	Name string
-	Args []string
+	CLI  bool
 }
 
 type AWSArn struct {
