@@ -25,16 +25,6 @@ type AWSArn struct {
 	ResourceDelimiter string
 }
 
-type AWSResource struct {
-	ResourceARN string
-	Tags        []map[string]string
-}
-
-type AWSResourceWrapper struct {
-	PaginationToken        string
-	ResourceTagMappingList []AWSResource
-}
-
 type AZResource struct {
 	ID          string
 	Kind        string
