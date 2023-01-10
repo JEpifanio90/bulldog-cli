@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"os/exec"
 
+	"github.com/pterm/pterm"
+
 	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/JEpifanio90/bulldog-cli/internal/savant"
-	"github.com/pterm/pterm"
 )
 
 func FetchResources(cmd models.Command) []models.Tenant {

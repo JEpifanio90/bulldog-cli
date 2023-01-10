@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
 	"github.com/pterm/pterm"
 	"github.com/urfave/cli/v2"
+
+	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
 )
 
 func main() {

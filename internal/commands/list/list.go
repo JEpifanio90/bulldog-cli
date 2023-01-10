@@ -5,20 +5,18 @@ import (
 	"os/exec"
 	"sync"
 
-	"github.com/JEpifanio90/bulldog-cli/internal/travis_ci"
-
-	"github.com/JEpifanio90/bulldog-cli/internal/azure"
-
-	"github.com/JEpifanio90/bulldog-cli/internal/gcp"
-
-	"github.com/JEpifanio90/bulldog-cli/internal/aws"
-
-	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/pterm/pterm"
 	"github.com/urfave/cli/v2"
+
+	"github.com/JEpifanio90/bulldog-cli/internal/aws"
+	"github.com/JEpifanio90/bulldog-cli/internal/azure"
+	"github.com/JEpifanio90/bulldog-cli/internal/gcp"
+	"github.com/JEpifanio90/bulldog-cli/internal/models"
+	"github.com/JEpifanio90/bulldog-cli/internal/travis_ci"
 )
 
 var filter string
+
 var Command = cli.Command{
 	Name:    "list",
 	Aliases: []string{"ls"},

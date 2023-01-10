@@ -7,14 +7,13 @@ import (
 	"log"
 	"os/exec"
 
-	"github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi/types"
-
 	"github.com/aws/aws-sdk-go-v2/config"
 	resourceGroups "github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi"
+	"github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi/types"
+	"github.com/pterm/pterm"
 
 	"github.com/JEpifanio90/bulldog-cli/internal/models"
 	"github.com/JEpifanio90/bulldog-cli/internal/savant"
-	"github.com/pterm/pterm"
 )
 
 func FetchResources(cmd models.Command) []models.Tenant {
