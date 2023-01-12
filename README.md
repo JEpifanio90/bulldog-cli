@@ -6,7 +6,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![BulldogAnalysis][bldg-analysis-shield]][bldg-analysis-url]
-[![BulldogLinter][bldg-linter-shield]][bldg-linter-url]
 [![BulldogSecurity][bldg-security-shield]][bldg-security-url]
 [![BulldogTest][bldg-test-shield]][bldg-test-url]
 [![Go Report Card][goreport-shield]][goreportcard-url]
@@ -165,15 +164,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [bldg-analysis-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/analysis.yml?label=Bulldog%20Analysis&style=for-the-badge
 
-[bldg-linter-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/linter.yml?label=Bulldog%20Linter&style=for-the-badge
-
 [bldg-security-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/security.yml?label=Bulldog%20Security&style=for-the-badge
 
 [bldg-test-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/test.yml?label=Bulldog%20Test&style=for-the-badge
 
 [bldg-analysis-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/analysis.yml
-
-[bldg-linter-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/linter.yml
 
 [bldg-security-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/security.yml
 
