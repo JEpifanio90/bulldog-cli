@@ -75,7 +75,6 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 For now you'll need the following installed in your local:
- - awscli
  - glcoud
  - az (azure cli)
  - travis
@@ -91,23 +90,6 @@ In progress...
 [//]: # (  brew install bulldog-cli)
 
 [//]: # (  ```)
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [x] Tenant Command
-    - [x] Add list sub command
-        - [X] Add `cloud` flag
-        - [x] Add `pipelines` flag
-        - [ ] Add `hosts` flag
-
-See the [open issues](https://github.com/jepifanio90/bulldog-cli/issues) for a full list of proposed features (and known
-issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 
