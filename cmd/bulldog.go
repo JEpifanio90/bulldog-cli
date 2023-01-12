@@ -12,7 +12,7 @@ import (
 
 func main() {
 	app := &cli.App{
-		Name:  "bulldog",
+		Name:  "Bulldog",
 		Usage: "is a CLI that empowers developers by giving them full control over their cloud accounts and pipelines",
 		Commands: []*cli.Command{
 			{
