@@ -5,7 +5,10 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![BulldogCliHealth][bulldog-shield]][bulldog-url]
+[![BulldogAnalysis][bldg-analysis-shield]][bldg-analysis-url]
+[![BulldogLinter][bldg-linter-shield]][bldg-linter-url]
+[![BulldogSecurity][bldg-security-shield]][bldg-security-url]
+[![BulldogTest][bldg-test-shield]][bldg-test-url]
 [![Go Report Card][goreport-shield]][goreportcard-url]
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/jepifanio90/bulldog-cli?style=for-the-badge)
 
@@ -160,9 +163,21 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [license-url]: https://github.com/jepifanio90/bulldog-cli/blob/master/LICENSE.txt
 
-[bulldog-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/main.yml?label=Bulldog%20Health&style=for-the-badge
+[bldg-analysis-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/analysis.yml?label=Bulldog%20Analysis&style=for-the-badge
 
-[bulldog-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/main.yml
+[bldg-linter-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/linter.yml?label=Bulldog%20Linter&style=for-the-badge
+
+[bldg-security-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/security.yml?label=Bulldog%20Security&style=for-the-badge
+
+[bldg-test-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/test.yml?label=Bulldog%20Test&style=for-the-badge
+
+[bldg-analysis-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/analysis.yml
+
+[bldg-linter-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/linter.yml
+
+[bldg-security-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/security.yml
+
+[bldg-test-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/test.yml
 
 [goreport-shield]: https://img.shields.io/badge/go%20report-A+-brightgreen.svg?style=for-the-badge
 
