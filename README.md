@@ -76,10 +76,11 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 For now you'll need the following installed in your local:
- - awscli
- - glcoud
- - az (azure cli)
- - travis
+
+- awscli
+- glcoud
+- az (azure cli)
+- travis
 
 ### Installation
 

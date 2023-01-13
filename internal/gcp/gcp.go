@@ -23,7 +23,8 @@ func FetchResources(cmd models.Command) []models.Tenant {
 func useGCloud() []models.Tenant {
 	rawOutput, err := exec.Command("gcloud", []string{"projects", "list", "--format", "json"}...).CombinedOutput()
 	if err != nil {
-		pterm.Error.Println(fmt.Errorf("list command: gcp cli %v", err.Error()))
+		pterm.Error.Println(fmt.Errorf("list command: gcp cli %w", err))
+
 		return nil
 	}
 	var tenants []models.Tenant
@@ -52,7 +53,7 @@ func parse(rawOutput []byte) []models.GCPProject {
 	err := json.Unmarshal(rawOutput, &projects)
 
 	if err != nil {
-		pterm.Error.Println(fmt.Errorf("gcp cli unmarshal: %v", err))
+		pterm.Error.Println(fmt.Errorf("gcp cli unmarshal: %w", err))
 		return nil
 	}
 
