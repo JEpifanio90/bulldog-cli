@@ -25,6 +25,11 @@ type AWSArn struct {
 	ResourceDelimiter string
 }
 
+type AZResponse struct {
+	NextLink string
+	Value    []AZResource
+}
+
 type AZResource struct {
 	ID          string
 	Kind        string

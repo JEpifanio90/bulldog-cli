@@ -75,10 +75,10 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 For now you'll need the following installed in your local:
- - glcoud
- - az (azure cli)
- - travis
 
+- glcoud
+- az (azure cli)
+- travis
 ### Installation
 
 In progress...

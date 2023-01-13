@@ -57,13 +57,10 @@ func useCdk() []models.Tenant {
 
 func parseAndConvert[T []byte | []types.ResourceTagMapping](input T, unmarshal bool) []models.Tenant {
 	wrapper := resourceGroups.GetResourcesOutput{}
-	_, ok := any(input).([]byte)
-
-	if unmarshal && ok {
+	if _, ok := any(input).([]byte); unmarshal && ok {
 		err := json.Unmarshal(any(input).([]byte), &wrapper)
-
 		if err != nil {
-			pterm.Error.Println(fmt.Errorf("aws cli unmarshal: %v", err))
+			pterm.Error.Println(fmt.Errorf("aws cli unmarshal: %w", err))
 			return nil
 		}
 	}
