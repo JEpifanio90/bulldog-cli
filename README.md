@@ -6,7 +6,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![BulldogAnalysis][bldg-analysis-shield]][bldg-analysis-url]
-[![BulldogLinter][bldg-linter-shield]][bldg-linter-url]
 [![BulldogSecurity][bldg-security-shield]][bldg-security-url]
 [![BulldogTest][bldg-test-shield]][bldg-test-url]
 [![Go Report Card][goreport-shield]][goreportcard-url]
@@ -77,11 +76,9 @@ To get a local copy up and running follow these simple example steps.
 
 For now you'll need the following installed in your local:
 
-- awscli
 - glcoud
 - az (azure cli)
 - travis
-
 ### Installation
 
 In progress...
@@ -93,23 +90,6 @@ In progress...
 [//]: # (  brew install bulldog-cli)
 
 [//]: # (  ```)
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [x] Tenant Command
-    - [x] Add list sub command
-        - [X] Add `cloud` flag
-        - [x] Add `pipelines` flag
-        - [ ] Add `hosts` flag
-
-See the [open issues](https://github.com/jepifanio90/bulldog-cli/issues) for a full list of proposed features (and known
-issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 
@@ -166,15 +146,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [bldg-analysis-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/analysis.yml?label=Bulldog%20Analysis&style=for-the-badge
 
-[bldg-linter-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/linter.yml?label=Bulldog%20Linter&style=for-the-badge
-
 [bldg-security-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/security.yml?label=Bulldog%20Security&style=for-the-badge
 
 [bldg-test-shield]: https://img.shields.io/github/actions/workflow/status/jepifanio90/bulldog-cli/test.yml?label=Bulldog%20Test&style=for-the-badge
 
 [bldg-analysis-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/analysis.yml
-
-[bldg-linter-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/linter.yml
 
 [bldg-security-url]: https://github.com/JEpifanio90/bulldog-cli/actions/workflows/security.yml
 
