@@ -79,6 +79,10 @@ For now you'll need the following installed in your local:
 - glcoud
 - az (azure cli)
 - travis
+
+- glcoud
+- az (azure cli)
+- travis
 ### Installation
 
 In progress...
