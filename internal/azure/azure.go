@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 	"os/exec"
@@ -33,7 +32,7 @@ func useAPI() []models.Tenant {
 		os.Getenv("AZURE_SUBSCRIPTION")),
 	)
 	if err != nil {
-		log.Fatalln(err)
+		pterm.Error.Println(fmt.Errorf("az api: %w", err))
 	}
 
 	defer resp.Body.Close()
@@ -74,19 +73,18 @@ func parse(rawOutput []byte, hasWrapper bool) []models.AZResource {
 		}
 
 		return azWrapper.Value
-	} else {
-		var resources []models.AZResource
-
-		err := json.Unmarshal(rawOutput, &resources)
-
-		if err != nil {
-			pterm.Error.Println(fmt.Errorf("az cli unmarshal: %w", err))
-
-			return nil
-		}
-
-		return resources
 	}
+
+	var resources []models.AZResource
+	err := json.Unmarshal(rawOutput, &resources)
+
+	if err != nil {
+		pterm.Error.Println(fmt.Errorf("az cli unmarshal: %w", err))
+
+		return nil
+	}
+
+	return resources
 }
 
 func convertToTenants(azResources []models.AZResource) []models.Tenant {
