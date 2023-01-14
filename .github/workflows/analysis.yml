@@ -29,3 +29,12 @@ jobs:
         uses: github/codeql-action/autobuild@v2
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: fetch repository
+        uses: actions/checkout@v3
+      - name: run go ci lint
+        uses: reviewdog/action-golangci-lint@v2
+        with:
+          golangci_lint_flags: "--tests=false"
