@@ -8,6 +8,7 @@ import (
 	"github.com/urfave/cli/v2"
 
 	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
+	"github.com/JEpifanio90/bulldog-cli/internal/commands/login"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 				Usage:       "...",
 				Subcommands: []*cli.Command{&list.Command},
 			},
+			&login.Command,
 		},
 	}
 
