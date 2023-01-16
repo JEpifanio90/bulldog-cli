@@ -48,3 +48,12 @@ type GCPProject struct {
 	ProjectNumber  string
 	Labels         map[string]string
 }
+
+type AuthTokens struct {
+	DeviceCode              string `json:"device_code"`
+	UserCode                string `json:"user_code"`
+	VerificationURI         string `json:"verification_uri"`
+	ExpiresIn               uint   `json:"expires_in"`
+	Interval                uint   `json:"interval"`
+	VerificationURIComplete string `json:"verification_uri_complete"`
+}

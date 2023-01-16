@@ -22,7 +22,12 @@ func main() {
 				Usage:       "...",
 				Subcommands: []*cli.Command{&list.Command},
 			},
-			&login.Command,
+			{
+				Name:        "authentication",
+				Aliases:     []string{"auth"},
+				Usage:       "...",
+				Subcommands: []*cli.Command{&login.Command},
+			},
 		},
 	}
 
