@@ -8,7 +8,6 @@ import (
 	"github.com/urfave/cli/v2"
 
 	"github.com/JEpifanio90/bulldog-cli/internal/commands/list"
-	"github.com/JEpifanio90/bulldog-cli/internal/commands/login"
 )
 
 func main() {
@@ -22,16 +21,10 @@ func main() {
 				Usage:       "...",
 				Subcommands: []*cli.Command{&list.Command},
 			},
-			{
-				Name:        "authentication",
-				Aliases:     []string{"auth"},
-				Usage:       "...",
-				Subcommands: []*cli.Command{&login.Command},
-			},
 		},
 	}
 
 	if err := app.Run(os.Args); err != nil {
-		pterm.Error.Println(fmt.Errorf("bulldog main: %v", err))
+		pterm.Error.Println(fmt.Errorf("bulldog main: %w", err))
 	}
 }
