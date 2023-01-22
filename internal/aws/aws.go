@@ -19,7 +19,7 @@ import (
 func FetchResources(cmd models.Command) []models.Tenant {
 	var tenants []models.Tenant
 	if cmd.CLI {
-		tenants = useAWSCli()
+		tenants = useCli()
 	} else {
 		tenants = useCdk()
 	}
@@ -27,7 +27,7 @@ func FetchResources(cmd models.Command) []models.Tenant {
 	return tenants
 }
 
-func useAWSCli() []models.Tenant {
+func useCli() []models.Tenant {
 	rawOutput, err := exec.Command("aws", []string{"resourcegroupstaggingapi", "get-resources", "--no-paginate"}...).CombinedOutput()
 	if err != nil {
 		pterm.Error.Println(fmt.Errorf("list command: aws cli %v", err.Error()))
@@ -57,6 +57,8 @@ func useCdk() []models.Tenant {
 
 func parseAndConvert[T []byte | []types.ResourceTagMapping](input T, unmarshal bool) []models.Tenant {
 	wrapper := resourceGroups.GetResourcesOutput{}
+
+	// TODO: Check else condition
 	if _, ok := any(input).([]byte); unmarshal && ok {
 		err := json.Unmarshal(any(input).([]byte), &wrapper)
 		if err != nil {
