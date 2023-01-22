@@ -80,7 +80,7 @@ func parseAndConvert[T []byte | []cloudresourcemanager.Project](input T, unmarsh
 				AccountID: project.ProjectId,
 				Platform:  "gcp",
 				Name:      project.Name,
-				Type:      string(project.ProjectNumber),
+				Type:      string(rune(project.ProjectNumber)),
 				Region:    "-",
 				Tags:      string(tags),
 			},
