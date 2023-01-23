@@ -63,7 +63,7 @@ func parseAndConvert[T []byte | []cloudresourcemanager.Project](input T, unmarsh
 		err := json.Unmarshal(any(input).([]byte), &projects)
 
 		if err != nil {
-			pterm.Error.Println(fmt.Errorf("gcp cli unmarshal: %w", err))
+			pterm.Error.Println(fmt.Errorf("gcp unmarshal: %w", err))
 			return nil
 		}
 	} else {
