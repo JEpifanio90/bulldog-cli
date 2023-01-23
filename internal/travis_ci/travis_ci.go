@@ -14,13 +14,13 @@ func FetchResources(cmd models.Command) []models.Tenant {
 	var tenants []models.Tenant
 
 	if cmd.CLI {
-		tenants = useTravisCli()
+		tenants = useCli()
 	}
 
 	return tenants
 }
 
-func useTravisCli() []models.Tenant {
+func useCli() []models.Tenant {
 	rawOutput, err := exec.Command("travis", []string{"accounts"}...).CombinedOutput()
 	if err != nil {
 		pterm.Error.Println(fmt.Errorf("list command: az cli %v", err.Error()))
