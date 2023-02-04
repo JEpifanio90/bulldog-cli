@@ -7,7 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.14.0
 	github.com/pterm/pterm v0.12.53
 	github.com/urfave/cli/v2 v2.24.1
-	google.golang.org/api v0.108.0
+	google.golang.org/api v0.109.0
 )
 
 require (
