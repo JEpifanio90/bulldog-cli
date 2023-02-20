@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.18.12
-	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.14.2
+	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.14.3
 	github.com/pterm/pterm v0.12.54
 	github.com/urfave/cli/v2 v2.24.3
 	google.golang.org/api v0.109.0
